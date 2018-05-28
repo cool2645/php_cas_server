@@ -10,7 +10,8 @@
         "leo108/laravel_cas_server": "^2.0.0",
         "leo108/php_cas_server_oauth_plugin_center": "1.*",
         "arvenil/ninja-mutex": "^0.5.1",
-        "fideloper/proxy": "^3.1"
+        "fideloper/proxy": "^3.1",
+        "leo108/php_cas_server_oauth_weibo": "^1.1"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

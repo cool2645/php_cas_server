@@ -162,9 +162,9 @@ return [
         App\Providers\AuthServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
-
         Fideloper\Proxy\TrustedProxyServiceProvider::class,
         Leo108\CAS\CASServerServiceProvider::class,
+        Leo108\CASServer\OAuth\Weibo\CASOAuthWeiboServiceProvider::class,
     ],
 
     /*

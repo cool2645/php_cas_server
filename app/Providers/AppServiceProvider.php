@@ -11,6 +11,8 @@ use Leo108\CAS\Contracts\Interactions\UserLogin as UserLoginInterface;
 use Leo108\CAS\Contracts\TicketLocker as TicketLockerInterface;
 use Leo108\CAS\Repositories\ServiceRepository as ServiceRepositoryBase;
 use Leo108\CASServer\OAuth\PluginCenter;
+use Leo108\CASServer\OAuth\Weibo\Plugins\WeiboPlugin;
+use Overtrue\Socialite\SocialiteManager;
 use NinjaMutex\Lock\LockAbstract;
 use NinjaMutex\Lock\MySqlLock;
 
@@ -52,6 +54,20 @@ class AppServiceProvider extends ServiceProvider
             PluginCenter::class,
             function () {
                 return new PluginCenter(app()->getLocale(), config('app.fallback_locale'));
+            }
+        );
+        $this->app->bind(
+            'cas.server.weibo',
+            function () {
+                return (new SocialiteManager(
+                    [
+                        'weibo' => [
+                            'client_id' => env('WEIBO_CLIENT_ID'),
+                            'client_secret' => env('WEIBO_CLIENT_SECRET'),
+                            'redirect' => "",
+                        ],
+                    ]
+                ))->driver('weibo');
             }
         );
     }
