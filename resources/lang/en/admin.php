@@ -41,6 +41,8 @@ return [
         'add_or_edit'       => 'Add/Edit Service',
         'name'              => 'Service Name',
         'hosts'             => 'Service Domain',
+        'login_url'         => 'Login Notification URL',
+        'logout_url'        => 'Logout Notification URL',
         'enabled'           => 'Enabled',
         'allow_proxy'       => 'Allow proxy',
         'created_at'        => 'Created Time',

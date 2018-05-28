@@ -10,12 +10,19 @@ namespace App\Repositories;
 
 use App\Exceptions\UserException;
 use App\Traits\ValidateInput;
-use Leo108\CAS\Models\Service;
+use App\Models\Service;
 use Leo108\CAS\Repositories\ServiceRepository as Base;
+use Leo108\CAS\Models\ServiceHost;
 
 class ServiceRepository extends Base
 {
     use ValidateInput;
+
+    public function __construct(Service $service, ServiceHost $serviceHost)
+    {
+        $this->service     = $service;
+        $this->serviceHost = $serviceHost;
+    }
 
     /**
      * @param $data
@@ -41,6 +48,8 @@ class ServiceRepository extends Base
                 'name'        => $data['name'],
                 'enabled'     => $data['enabled'],
                 'allow_proxy' => $data['allow_proxy'],
+                'login_url'   => $data['login_url'],
+                'logout_url'  => $data['logout_url'],
             ]
         );
 
@@ -62,6 +71,8 @@ class ServiceRepository extends Base
                 'hosts',
                 'enabled',
                 'allow_proxy',
+                'login_url',
+                'logout_url',
             ]
         );
 

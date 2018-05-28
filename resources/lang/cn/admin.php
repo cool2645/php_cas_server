@@ -41,6 +41,8 @@ return [
         'add_or_edit'       => '添加/编辑服务',
         'name'              => '服务名称',
         'hosts'             => '域名',
+        'login_url'         => '登录通知 URL',
+        'logout_url'        => '登出通知 URL',
         'enabled'           => '是否启用',
         'allow_proxy'       => '启用代理',
         'created_at'        => '创建时间',

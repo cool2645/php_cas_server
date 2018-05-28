@@ -15,6 +15,8 @@ Vue.component('admin-service-index', {
                 enabled: true,
                 allow_proxy: false,
                 hosts: '',
+                login_url: '',
+                logout_url: ''
             },
             busy: false,
             isEdit: false,
@@ -43,6 +45,8 @@ Vue.component('admin-service-index', {
             this.editService.enabled = item.enabled;
             this.editService.allow_proxy = item.allow_proxy;
             this.editService.hosts = this.displayHosts(item.hosts, "\n");
+            this.editService.login_url = item.login_url;
+            this.editService.logout_url = item.logout_url;
             $('#edit-dialog').modal();
         },
         showAdd() {
@@ -50,6 +54,8 @@ Vue.component('admin-service-index', {
             this.editService.id = 0;
             this.editService.name = '';
             this.editService.hosts = '';
+            this.editService.login_url = '';
+            this.editService.logout_url = '';
             this.editService.enabled = true;
             this.editService.allow_proxy = false;
             $('#edit-dialog').modal();

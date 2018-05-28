@@ -29,6 +29,8 @@
                             <th>#</th>
                             <th>@lang('admin.service.name')</th>
                             <th>@lang('admin.service.hosts')</th>
+                            <th>@lang('admin.service.login_url')</th>
+                            <th>@lang('admin.service.logout_url')</th>
                             <th>@lang('admin.service.enabled')</th>
                             <th>@lang('admin.service.allow_proxy')</th>
                             <th>@lang('admin.service.created_at')</th>
@@ -42,6 +44,8 @@
                             <td>@{{ item.id }}</td>
                             <td>@{{ item.name }}</td>
                             <td>@{{{ displayHosts(item.hosts) }}}</td>
+                            <td>@{{ item.login_url }}</td>
+                            <td>@{{ item.logout_url }}</td>
                             <td>@{{{ bool2icon(item.enabled) }}}</td>
                             <td>@{{{ bool2icon(item.allow_proxy) }}}</td>
                             <td>@{{ item.created_at }}</td>
@@ -85,6 +89,20 @@
                             <div class="col-sm-6">
                             <textarea class="form-control" name="hosts" cols="30" rows="10" v-model="editService.hosts"
                                       placeholder="@lang('admin.service.hosts_placeholder')"></textarea>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">@lang('admin.service.login_url')</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" v-model="editService.login_url" name="name"
+                                       placeholder="@lang('admin.service.login_url')">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-4 control-label">@lang('admin.service.logout_url')</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" v-model="editService.logout_url" name="name"
+                                       placeholder="@lang('admin.service.logout_url')">
                             </div>
                         </div>
                         <div class="form-group">
