@@ -73,7 +73,13 @@
                         @if(count($plugins) > 0)
                         <div class="form-group">
                             @foreach($plugins as $plugin)
-                                <a class="col-lg-3" href="{{ route('oauth.login', ['name' => $plugin->getFieldName()]) }}">{{ $plugin->getName() }}</a>
+                                <a class="col-lg-3" href="{{ route('oauth.login', ['name' => $plugin->getFieldName()]) }}">
+                                    @if($plugin->getFieldName() == "weibo_id")
+                                        <img src="https://timg.sjs.sinajs.cn/t4/appstyle/widget/images/loginButton/loginButton_24.png">
+                                    @else
+                                        {{ $plugin->getName() }}
+                                    @endif
+                                </a>
                             @endforeach
                         </div>
                         @endif
